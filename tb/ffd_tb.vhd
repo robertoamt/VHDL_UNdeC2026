@@ -14,11 +14,11 @@ architecture sim of ffd_tb is
         rst : in std_logic;--
         q : out std_logic;
         nq : out std_logic
-        );--cambios
+        );
     end component;
     signal d_tb, nq_tb, q_tb, rst_tb : std_logic;
     signal clk_tb : std_logic := '0';
-    constant clk_period : time := 10 ns;
+    constant clk_period : time := 20 ns;
 begin
 --mapeo de componente y estimulos
     ffd_inst1: ffd
@@ -43,7 +43,7 @@ begin
     wait;
 	end process;
 
-    rst_tb <= '0', '1' after 30 ns, '0' after 200 ns; 
+    rst_tb <= '1', '0' after 30 ns, '1' after 200 ns; 
 
 end architecture;
 
