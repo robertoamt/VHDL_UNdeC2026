@@ -20,10 +20,12 @@ begin
     begin
         if rst = '1' then --mayor prioridad
             q <= '0';
+            nq <= '0';
         elsif rising_edge(clk) then
             q <= d;
+            nq <= not d;
         end if;
-    end process
-
+    end process;
 end architecture;
+
 

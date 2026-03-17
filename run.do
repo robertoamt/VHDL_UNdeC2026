@@ -1,9 +1,9 @@
 vdel -all
 vlib work
 vmap work work
-vcom rtl/mux.vhd
-vcom tb/mux_tb.vhd
-vsim -voptargs=+acc work.mux_tb
+vcom rtl/ffd.vhd
+vcom tb/ffd_tb.vhd
+vsim -voptargs=+acc work.ffd_tb
 add wave -r /*
 run 50ms
 
