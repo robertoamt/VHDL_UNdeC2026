@@ -9,14 +9,17 @@ Port(
 );
 
 architecture cont of contador is 
-signal cuenta: unsigned(3 downto 0);
+signal cuenta: unsigned(3 downto 0):= (others => '0');
 begin
-    process(clk,rst)
-    begin
-        if rst='1' then
-            cuenta <="0000"
-        elsif rising_edge(clk) then
-            cuenta <= cuenta+1;
-        end if;
+
+process(clk,rst)
+begin
+    if reset = '1' then
+        cuenta <= (others => '0');
+    elsif rising_edge(clk) then
+        cuenta <= cuenta + 1;
+    end if;
     end process;
+
+q <= STD_LOGIC_VECTOR(cuenta);
 end architecture;
