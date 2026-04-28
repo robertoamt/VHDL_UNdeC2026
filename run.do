@@ -18,7 +18,7 @@
 set RTL_DIR rtl
 set TB_DIR  tb
 set WORK_LIB work
-set TOP bcd7seg_tb      ;# <-- Cambiar si tu testbench se llama distinto
+set TOP data_gen_tb      ;# <-- Cambiar si tu testbench se llama distinto
 set VHDL_STD "-2008" ;# Podés usar "-93" o "-2002" si lo necesitás
 
 # -----------------------------
