@@ -107,8 +107,20 @@ vsim -voptargs=+acc $WORK_LIB.$TOP
 
 # Si estás en GUI, agregamos waves
 if {![batch_mode]} {
-    add wave -r /*
+    # Busca instancias dentro del testbench
+    set instances [find instances sim:/$TOP/*]
+
+    foreach inst $instances {
+        # inst es algo como "sim:/data_gen_tb/mi_gen (data_gen)"
+        # Nos quedamos solo con la parte antes del paréntesis
+        set clean_inst [lindex [split $inst "("] 0]
+        set clean_inst [string trim $clean_inst]
+
+        puts "Agregando señales de instancia: $clean_inst"
+        add wave -r $clean_inst/*
+    }
 }
+
 run 200ms
 
 # Si estás en batch (-c), terminamos
